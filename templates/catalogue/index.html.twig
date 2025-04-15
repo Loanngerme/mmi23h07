@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CatalogueController!{% endblock %}
+
+{% block body %}
+    <h1>{{'Voici le catalogue de nos garage'|trans }}</h1>
+{% for garage in garages %}
+<a href="{{ path('app_catalogue_show', { 'id': garage.id }) }}">
+        <h3>Garage: {{ garage.nomGarage }}</h3>
+</a>
+{% endfor %}
+{% endblock %}

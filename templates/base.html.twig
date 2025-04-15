@@ -10,6 +10,17 @@
         {% block javascripts %}
             {% block importmap %}{{ importmap('app') }}{% endblock %}
         {% endblock %}
+        {% if app.user %}
+            <li><a href="{{ path('app_logout') }}">Déconnexion</a></li>
+        {% else %}
+            <li><a href="{{ path('app_login') }}">Connexion</a></li>
+            <li><a href="{{ path('app_register') }}">Inscription</a></li>
+        {% endif %}
+        <li>
+            LE site est en : {{ app.locale }}
+            <a href="{{ path('app_catalogue', {_locale:'fr'}) }}">Français</a>
+            <a href="{{ path('app_catalogue', {_locale:'en'}) }}">Anglais</a>
+        </li>
     </head>
     <body>
         {% block body %}{% endblock %}
